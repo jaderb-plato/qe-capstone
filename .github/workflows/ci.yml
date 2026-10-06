@@ -1,3 +1,4 @@
+
 # The eight-stage pipeline.
 #
 #   Build → Test → Analyze → LoadTest → Security → A11y → Deploy → Smoke
@@ -124,13 +125,18 @@ jobs:
           --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       DB_URL: postgresql://qe:qe@localhost:5432/qe
-    steps:
+   steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-profile
         with:
           profile: ${{ needs.config.outputs.profile }}
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r profiles/python/requirements.txt
+
       - run: ./scripts/qe.sh test
-      - name: Publish test report
+
+      - name: Publish test report     
         if: always()
         uses: actions/upload-artifact@v4
         with:
