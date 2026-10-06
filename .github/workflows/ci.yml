@@ -125,7 +125,7 @@ jobs:
           --health-interval 10s --health-timeout 5s --health-retries 5
     env:
       DB_URL: postgresql://qe:qe@localhost:5432/qe
-   steps:
+    steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/setup-profile
         with:
