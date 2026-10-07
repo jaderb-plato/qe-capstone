@@ -24,6 +24,11 @@ QE_TEST(boundary_at_ten_years) {
   QE_ASSERT_EQ(discount::apply(100.0, 10), 80.0);
 }
 
+QE_TEST(boundary_at_twenty_years) {
+  QE_ASSERT_EQ(discount::apply(100.0, 19), 80.0);
+  QE_ASSERT_EQ(discount::apply(100.0, 20), 75.0);
+}
+
 QE_TEST(rejects_negative_total) {
   bool threw = false;
   try {
