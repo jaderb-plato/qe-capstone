@@ -3,44 +3,48 @@
 ## Behaviour 1 - Submit Talk
 
 AC1 (F)
-Given a user is on the submission page
-When valid talk details are submitted
-Then the talk is saved successfully
+Given a user is on the talk submission page
+When valid talk information is submitted
+Then the talk is displayed in the submitted talks list
 
 AC2 (F)
-Given a user is on the submission page
-When required fields are missing
-Then validation errors are displayed
+Given a user is on the talk submission page
+When one or more required fields are blank
+Then validation messages are displayed and the submission is rejected
 
 AC3 (NF)
-The submission request completes within 2 seconds
+Given the system is operating under normal conditions
+When a valid talk is submitted
+Then the request completes within 2 seconds
 
 ## Behaviour 2 - View Talks
 
 AC4 (F)
-Given talks exist
-When a user opens the talks list
-Then all saved talks are displayed
+Given one or more talks have been submitted
+When a user views the talks list
+Then all submitted talks are displayed
 
 AC5 (F)
-Given no talks exist
-When a user opens the talks list
-Then an empty message is displayed
+Given no talks have been submitted
+When a user views the talks list
+Then an empty state message is displayed
 
 AC6 (NF)
-The talks page loads within 2 seconds
+Given the talks list contains up to 100 talks
+When a user loads the talks page
+Then the page loads within 2 seconds
 
 ## Behaviour 3 - Authentication
 
 AC7 (F)
-Given valid credentials
-When a user signs in
-Then access is granted
+Given a registered user enters valid credentials
+When the sign-in form is submitted
+Then access to the application is granted
 
 AC8 (F)
-Given invalid credentials
-When a user signs in
-Then an error message is displayed
+Given a user enters invalid credentials
+When the sign-in form is submitted
+Then an authentication error message is displayed and access is denied
 
 # Traceability
 
