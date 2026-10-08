@@ -1,5 +1,2 @@
-import pytest
-
-@pytest.fixture
-def base_url():
-    return "http://localhost:8080"
+# Shared pytest fixtures will go here in Week 2.
+``
