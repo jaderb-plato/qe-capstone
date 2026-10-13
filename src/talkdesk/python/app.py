@@ -177,8 +177,17 @@ def login(body: Login):
 
 
 # ────────────────────────────────────────────────────────────── HTML
-PAGE = """Handler."""
-
+PAGE = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{title}</title>
+</head>
+<body>
+{body}
+</body>
+</html>
+"""
 
 def page(title, body):
     """Handler."""
@@ -203,9 +212,22 @@ def home():
 
 @app.get("/submit", response_class=HTMLResponse)
 def submit_form():
-    """Handler."""
-    return page("Submit a talk", """Handler.""")
+    return page("Submit a talk", """
+<h2>Submit a Talk</h2>
 
+<form method="post" action="/api/talks">
+  <label for="speaker_id">Speaker ID</label>
+  <input id="speaker_id" name="speaker_id" type="number" required>
+
+  <label for="title">Title</label>
+  <input id="title" name="title" type="text" required>
+
+  <label for="track">Track</label>
+  <input id="track" name="track" type="text" required>
+
+  <button type="submit">Submit</button>
+</form>
+""")
 
 @app.get("/login", response_class=HTMLResponse)
 def login_form():
