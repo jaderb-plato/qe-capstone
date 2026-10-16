@@ -4,6 +4,7 @@ pytest-cov==6.0.0
 
 fastapi
 uvicorn
+httpx
 
 # Week 2 — integration and E2E
 requests==2.32.3
