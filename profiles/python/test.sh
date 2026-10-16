@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")/../.."
+export PYTHONPATH=src/talkdesk/python
 mkdir -p reports
 # -c names the profile's own config. Without it pytest reads no config from
 # here at all, so branch coverage, testpaths and --strict-markers — every

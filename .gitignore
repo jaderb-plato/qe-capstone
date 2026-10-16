@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv*
+
+# Coverage
+.coverage
+
+# Pytest
+.*ytest_cache/
