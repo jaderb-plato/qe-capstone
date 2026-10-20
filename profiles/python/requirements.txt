@@ -5,6 +5,8 @@ pytest-cov==6.0.0
 fastapi
 uvicorn
 httpx
+psycopg[binary]==3.2.3
+pydantic==2.10.4
 
 # Week 2 — integration and E2E
 requests==2.32.3
